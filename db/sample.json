@@ -1,0 +1,44 @@
+[
+  {
+    "city": "Mitchell",
+    "country": "United States",
+    "lat": 43.7294,
+    "lng": -98.0336
+  },
+  {
+    "city": "Pierre",
+    "country": "United States",
+    "lat": 44.3748,
+    "lng": -100.3205
+  },
+  {
+    "city": "Sturgis",
+    "country": "United States",
+    "lat": 44.4111,
+    "lng": -103.4975
+  },
+  {
+    "city": "Tea",
+    "country": "United States",
+    "lat": 43.4515,
+    "lng": -96.8346
+  },
+  {
+    "city": "Brandon",
+    "country": "United States",
+    "lat": 43.5928,
+    "lng": -96.5799
+  },
+  {
+    "city": "Madison",
+    "country": "United States",
+    "lat": 44.0062,
+    "lng": -97.1084
+  },
+  {
+    "city": "Belle Fourche",
+    "country": "United States",
+    "lat": 44.664,
+    "lng": -103.8564
+  }
+]
