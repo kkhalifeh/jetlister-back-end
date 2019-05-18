@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_17_205553) do
+ActiveRecord::Schema.define(version: 2019_05_18_165739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,9 @@ ActiveRecord::Schema.define(version: 2019_05_17_205553) do
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "list_id"
     t.index ["category_id"], name: "index_place_categories_on_category_id"
+    t.index ["list_id"], name: "index_place_categories_on_list_id"
     t.index ["place_id"], name: "index_place_categories_on_place_id"
   end
 
@@ -91,5 +93,6 @@ ActiveRecord::Schema.define(version: 2019_05_17_205553) do
   add_foreign_key "pins", "lists"
   add_foreign_key "pins", "users"
   add_foreign_key "place_categories", "categories"
+  add_foreign_key "place_categories", "lists"
   add_foreign_key "place_categories", "places"
 end
