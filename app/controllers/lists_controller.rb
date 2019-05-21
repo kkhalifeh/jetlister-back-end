@@ -26,4 +26,10 @@ class ListsController < ApplicationController
     render json: @list
   end
 
+  def remove_author
+    @list = List.find(params[:id])
+    @list.update(author_id: (User.find_by(username: "jetlister_community").id))
+    render json: @list
+  end
+
 end
