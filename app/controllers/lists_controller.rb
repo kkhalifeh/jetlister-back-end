@@ -5,6 +5,11 @@ class ListsController < ApplicationController
     render json:@lists
   end
 
+  def user_lists
+    @lists = List.where(author_id: params[:id])
+    render json:@lists
+  end
+
   def all_lists
     @lists = List.where.not(author_id: current_user.id) 
     render json:@lists 

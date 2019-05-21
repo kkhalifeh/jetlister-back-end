@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/users' => 'users#index', :as => 'users'
   get '/lists' => 'lists#index', :as => 'lists'
   get '/all_lists' => 'lists#all_lists', :as => 'all_lists'
+  get '/lists/:id/user_lists' => 'lists#user_lists', :as => 'user_lists'
   post '/lists/create' => 'lists#create'
   patch '/lists/:id/remove_author' => 'lists#remove_author'
   post '/places/create' => 'places#create'
