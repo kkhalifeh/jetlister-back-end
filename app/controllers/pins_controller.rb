@@ -5,8 +5,15 @@ class PinsController < ApplicationController
   end
 
   def create
-    @pin = Pin.create(user_id:current_user.id, list_id:params[:list_id])
+    @pin = Pin.find_or_create_by(user_id:current_user.id, list_id:params[:list_id])
     render json:@pin
+  end
+
+  def delete 
+    @pin = Pin.find(params[:id])
+    @pin.destroy
+    msg = { :status => "ok", :message => "Success!" }
+    render json:msg
   end
   
 end

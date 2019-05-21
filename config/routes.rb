@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   post '/lists/create' => 'lists#create'
   post '/places/create' => 'places#create'
   post '/pins/create' => 'pins#create'
+  patch '/lists/:id/edit' => 'lists#edit'
+  delete 'pins/:id/delete', :to => 'pins#delete'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
