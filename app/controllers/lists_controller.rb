@@ -28,6 +28,7 @@ class ListsController < ApplicationController
     @list.list_places.each {|list_place| list_place.destroy}
     @places = params[:places].each do |place| Place.create_with(name: place[:name], img_url: place[:photo_ref]).find_or_create_by(google_id: place[:place_id]) end 
     @places.each {|place| ListPlace.find_or_create_by(list_id:@list.id, place_id: (Place.find_by(google_id: place[:google_id])).id )}
+    # @places.each {|place| PlaceCategory.update(list_id:@list.id, note: place[:note], place_id: (Place.find_by(google_id: place[:google_id])).id )}
     render json: @list
   end
 

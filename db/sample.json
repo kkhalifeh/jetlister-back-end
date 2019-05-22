@@ -1,44 +1,62 @@
 [
   {
-    "city": "Mitchell",
+    "city": "New York",
     "country": "United States",
-    "lat": 43.7294,
-    "lng": -98.0336
+    "lat": 40.6943,
+    "lng": -73.9249
   },
   {
-    "city": "Pierre",
-    "country": "United States",
-    "lat": 44.3748,
-    "lng": -100.3205
+    "city": "London",
+    "country": "United Kingdom",
+    "lat": 51.5,
+    "lng": -0.1167
   },
   {
-    "city": "Sturgis",
+    "city": "Miami",
     "country": "United States",
-    "lat": 44.4111,
-    "lng": -103.4975
+    "lat": 25.784,
+    "lng": -80.2102
   },
   {
-    "city": "Tea",
-    "country": "United States",
-    "lat": 43.4515,
-    "lng": -96.8346
+    "city": "Paris",
+    "country": "France",
+    "lat": 48.8667,
+    "lng": 2.3333
   },
   {
-    "city": "Brandon",
-    "country": "United States",
-    "lat": 43.5928,
-    "lng": -96.5799
+    "city": "Athens",
+    "country": "Greece",
+    "lat": 37.9833,
+    "lng": 23.7333
   },
   {
-    "city": "Madison",
-    "country": "United States",
-    "lat": 44.0062,
-    "lng": -97.1084
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "lat": 25.23,
+    "lng": 55.28
   },
   {
-    "city": "Belle Fourche",
+    "city": "Rome",
+    "country": "Italy",
+    "lat": 41.896,
+    "lng": 12.4833
+  },
+  {
+    "city": "Beirut",
+    "country": "Lebanon",
+    "lat": 33.872,
+    "lng": 35.5097
+  },
+  {
+    "city": "Philadelphia",
     "country": "United States",
-    "lat": 44.664,
-    "lng": -103.8564
+    "lat": 40.0076,
+    "lng": -75.134
+  },
+  {
+    "city": "Seoul",
+    "country": "Korea, South",
+    "lat": 37.5663,
+    "lng": 126.9997
   }
 ]
