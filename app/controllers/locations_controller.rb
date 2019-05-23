@@ -9,6 +9,4 @@ class LocationsController < ApplicationController
     render json: @locations 
   end 
 
-  # def user_locations
-  #   @locations = 
 end
