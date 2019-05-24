@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
+  get '/sign-up', to: 'registrations#create'
   get 'places/create'
   get '/pins' => 'pins#index', :as => 'pins'
   get '/categories' => 'categories#index', :as => 'categories'
