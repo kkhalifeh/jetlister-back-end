@@ -1,12 +1,16 @@
 class ApplicationController < ActionController::API
-  before_action :set_csrf_token
-  before_action :authenticate_user
-
   include ActionController::Cookies
   include ActionController::RequestForgeryProtection
 
   protect_from_forgery with: :exception
 
+  before_action :set_csrf_token
+  before_action :authenticate_user, except: [:heartbit]
+  # skip_before_action :verify_authenticity_token, only: [:heartbit]
+
+  def heartbit
+    render json: {}, status: :ok
+  end
 
   def current_user
     @user
@@ -16,7 +20,7 @@ class ApplicationController < ActionController::API
   private
 
   def set_csrf_token
-    cookies["CSRF-TOKEN"] = form_authenticity_token
+    response.set_header("x-token", form_authenticity_token)
   end
 
   def authenticate_user

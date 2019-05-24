@@ -21,12 +21,12 @@ require 'faker'
 #   Category.create({label: item})
 # end
 
-data = ActiveSupport::JSON.decode(File.read("db/sample.json"))
-data.each do |attributes|
-  Location.create!(
-    city: attributes['city'],
-    country: attributes['country'],
-    latitude: attributes['lat'],
-    longitude: attributes['lng']
-  )
-end
+# data = ActiveSupport::JSON.decode(File.read("db/sample.json"))
+# data.each do |attributes|
+#   Location.create!(
+#     city: attributes['city'],
+#     country: attributes['country'],
+#     latitude: attributes['lat'],
+#     longitude: attributes['lng']
+#   )
+# end

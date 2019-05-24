@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get '/login', to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy'
-  get '/sign-up', to: 'registrations#create'
+  get '/heartbit', to: 'application#heartbit'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  post '/sign-up', to: 'registrations#create'
   get 'places/create'
   get '/pins' => 'pins#index', :as => 'pins'
   get '/categories' => 'categories#index', :as => 'categories'

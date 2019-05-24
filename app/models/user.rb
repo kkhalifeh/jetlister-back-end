@@ -12,6 +12,7 @@ class User < ApplicationRecord
             if: -> { new_record? || changes[:crypted_password] }
 
   validates :email, uniqueness: true
+  validates :username, uniqueness: true
 
   has_many :pins
   has_many :lists, through: :pins
