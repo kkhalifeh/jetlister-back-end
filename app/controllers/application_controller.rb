@@ -1,8 +1,11 @@
 class ApplicationController < ActionController::API
+  
   include ActionController::Cookies
   include ActionController::RequestForgeryProtection
 
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :exception
+  # protect_from_forgery with: :null_session
+
 
   before_action :set_csrf_token
   before_action :authenticate_user, except: [:heartbit]
@@ -20,7 +23,7 @@ class ApplicationController < ActionController::API
   private
 
   def set_csrf_token
-    response.set_header("x-token", form_authenticity_token)
+    response.set_header("X-App-CSRF-Token", form_authenticity_token)
   end
 
   def authenticate_user

@@ -2,9 +2,10 @@ class SessionsController < ApplicationController
   skip_before_action :authenticate_user, only: [:create]
   
   def create
+    # byebug
     @user = User.find_by(email: signin_params[:email])
     if @user && @user.valid_password?(signin_params[:password])
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
 
       render json: :create, status: 200
     else
