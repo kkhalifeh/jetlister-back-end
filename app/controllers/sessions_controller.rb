@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    byebug
     logout
     render json: {message: "You are logged out"}, status: 200
   end
