@@ -20,8 +20,8 @@ class ListsController < ApplicationController
     # byebug
     @list = List.create(author_id: current_user.id, location_id: params[:location_id], pinned: 0)
     @places = params[:places].each do |place| Place.create_with(name: place[:name], img_url: place[:photo_ref]).find_or_create_by(google_id: place[:place_id]) end 
-    @places.each {|place| ListPlace.create(list_id:@list.id, place_id: (Place.find_by(google_id: place[:place_id])).id )}
-    @places.each {|place| PlaceCategory.create(list_id: @list.id, note: place[:note], category_id:place[:category_id], place_id: (Place.find_by(google_id: place[:place_id])).id )}
+    @places.each {|place| ListPlace.create(list_id:@list.id, place_id: (Place.find_by(google_id: place[:place_id])).id, note: place[:note] )}
+    @places.each {|place| PlaceCategory.create(list_id: @list.id, category_id:place[:category_id], place_id: (Place.find_by(google_id: place[:place_id])).id )}
     render json: @list
   end
 
@@ -30,7 +30,7 @@ class ListsController < ApplicationController
     @list.list_places.each {|list_place| list_place.destroy}
     @places = params[:places].each do |place| Place.create_with(name: place[:name], img_url: place[:photo_ref]).find_or_create_by(google_id: place[:place_id]) end 
     @places.each {|place| ListPlace.find_or_create_by(list_id:@list.id, place_id: (Place.find_by(google_id: place[:google_id])).id )}
-    @place_categories = params[:place_categories].each {|place| PlaceCategory.find(place[:id]).update(note: place[:note])}
+    # @place_categories = params[:place_categories].each {|place| PlaceCategory.find(place[:id]).update(note: place[:note])}
     render json: @list
   end
 

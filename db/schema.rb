@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_24_135038) do
+ActiveRecord::Schema.define(version: 2019_05_28_142234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_05_24_135038) do
     t.bigint "place_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "note"
     t.index ["list_id"], name: "index_list_places_on_list_id"
     t.index ["place_id"], name: "index_list_places_on_place_id"
   end
@@ -60,7 +61,6 @@ ActiveRecord::Schema.define(version: 2019_05_24_135038) do
   create_table "place_categories", force: :cascade do |t|
     t.bigint "place_id"
     t.bigint "category_id"
-    t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "list_id"
