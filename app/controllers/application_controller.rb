@@ -3,34 +3,23 @@ class ApplicationController < ActionController::API
   include ActionController::Cookies
   include ActionController::RequestForgeryProtection
 
-  # protect_from_forgery with: :exception
-  # protect_from_forgery with: :null_session
+  protect_from_forgery with: :exception
 
-
-  before_action :set_csrf_token
-  before_action :authenticate_user, except: [:heartbit]
-  # skip_before_action :verify_authenticity_token, only: [:heartbit]
-
-  def heartbit
-    render json: {}, status: :ok
-  end
+  before_action :require_login, except: [:heartbit]
+  after_action :set_csrf_cookie
+  helper_method :current_user
 
   def current_user
-    @user
+    @current_user ||= User.find_by_id(session[:user_id])
   end
-  helper_method :current_user
+
+  def heartbit
+    render json: {message: 'App is up...'}, status: 200
+  end
 
   private
 
-  def set_csrf_token
-    response.set_header("X-App-CSRF-Token", form_authenticity_token)
-  end
-
-  def authenticate_user
-    if session[:user_id].present? && @user = User.find_by(id: session[:user_id])
-      true
-    else
-      render(json: {}, status: 401) and return
-    end
+  def set_csrf_cookie
+    cookies["X-App-CSRF-Token"] = form_authenticity_token
   end
 end

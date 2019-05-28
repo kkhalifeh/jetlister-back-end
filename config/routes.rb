@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get '/heartbit', to: 'application#heartbit'
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  post '/login', to: 'sessions#create'  
   post '/sign-up', to: 'registrations#create'
   get 'places/create'
   get '/pins' => 'pins#index', :as => 'pins'
@@ -18,5 +17,6 @@ Rails.application.routes.draw do
   post '/pins/create' => 'pins#create'
   patch '/lists/:id/edit' => 'lists#edit'
   delete 'pins/:id/delete', :to => 'pins#delete'
+  delete '/logout', to: 'sessions#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

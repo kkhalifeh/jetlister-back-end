@@ -1,34 +1,24 @@
 class SessionsController < ApplicationController
-  skip_before_action :authenticate_user, only: [:create]
-  
-  def create
-    # byebug
-    @user = User.find_by(email: signin_params[:email])
-    if @user && @user.valid_password?(signin_params[:password])
-      session[:user_id] = @user.id
+  skip_before_action :require_login, only: [:create]
 
-      render json: :create, status: 200
+  def create
+    @user = login(user_params[:email], user_params[:password])
+    if @user
+      render :create, status: 200
     else
-      render json: {errors: 'Invalid email or password'}, status: 401
+      render json: {error: 'Invalid Email or Password'}, status: 401
     end
   end
 
   def destroy
-    @user = User.find_by(id: session[:user_id])
-
-    if @user
-      session[:user_id] = nil
-      render json: {message: 'User is successfully logged out'}, status: 200
-    else
-      render json: {}, status: 422
-    end
+    byebug
+    logout
+    render json: {message: "You are logged out"}, status: 200
   end
 
   private
 
-  def signin_params
-    params
-    .require(:sign_in)
-    .permit(:email, :password)
+  def user_params
+    params.require(:sign_in).permit(:email, :password)
   end
 end
