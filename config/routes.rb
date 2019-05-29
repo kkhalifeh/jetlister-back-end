@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/locations' => 'locations#index', :as => 'locations'
   get '/locations_filter' => 'locations#locations_filter', :as => 'locations_filter'
   get '/users' => 'users#index', :as => 'users'
+  get '/users/my_info' => 'users#my_info', :as => 'my_info'
   get '/lists' => 'lists#index', :as => 'lists'
   get '/all_lists' => 'lists#all_lists', :as => 'all_lists'
   get '/lists/:id/user_lists' => 'lists#user_lists', :as => 'user_lists'
